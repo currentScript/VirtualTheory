@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/style.css">
+    <link rel="stylesheet" href="./fullpage/fullpage.min.css">
+    <title>Virtual Theory</title>
+</head>
+
+<body id="my-scrollbar">
+
+    <div class="cursor"></div>
+
+    <nav>
+        <a href="#" class="logo"><img src="img/logo.png" alt=" Virtual Theory"></a>
+        <a href="#">Products</a>
+        <a href="#" class="link_animation">Contact</a>
+        <a href="#" class="link_animation">About</a>
+        <a href="#" class="link_animation">Home</a>
+    </nav>
+
+    <h1 class="bg">
+        VIRTUAL <br>
+        THEORY
+    </h1>
+
+    <section class="main">
+        <div class="left">
+            <div class="heading">
+                <h1>Virtual</h1>
+                <h1>Theory</h1>
+            </div>
+            <div class="desc">
+                <p>
+                    want to be better? <br>
+                    get better!
+                </p>
+                <p>
+                    buy Virtual Theory now <br>
+                    and get 20% sale
+                </p>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="img">
+                <img src="img/undraw.svg" alt="file not found :/">
+            </div>
+
+            <button onclick="clickme()">
+                learn more <br>
+                <div class="arrow"></div>
+            </button>
+        </div>
+
+    </section>
+
+    <section class="description">
+        <div class="description__left">
+            <h1>Desc.</h1>
+            <hr>
+            <p>
+                Web design has never been that easy. Choose out of over 5.000 free templates and create the perfect
+                Website.
+                With over 3 Million colors and 2.500 Fonts to use.
+            </p>
+        </div>
+
+        <div class="description__right">
+            <img src="img/tool.jpg" alt="file not found :/">
+        </div>
+    </section>
+
+    <section class="projects">
+        <h1>Projects</h1>
+
+        <div class="projects__container parallax">
+            <img src="img/Ex_1.jpg" alt="file not found :/">
+            <img src="img/Ex_2.jpg" alt="file not found :/">
+            <img src="img/Ex_3.jpg" alt="file not found :/">
+            <img src="img/Ex_1.jpg" alt="file not found :/">
+            <img src="img/Ex_2.jpg" alt="file not found :/">
+            <img src="img/Ex_3.jpg" alt="file not found :/">
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="flex">
+            <div class="card_1">
+                <h1>Work2 <br> Gether</h1>
+                <hr>
+                <p>Work in Teams and edit the same Document from everywhere you are. With this feature you finish your
+                    Projects earlier and stay updates all the time.</p>
+            </div>
+            <div class="card_2">
+                <h1>Auto <br> Animate</h1>
+                <hr>
+                <p>Create in-App animations to visualize your ideas in a way more batte way. Animate OnScroll, Buttons,
+                    Hover Effects, Text Show up and more.</p>
+            </div>
+            <div class="card_3">
+                <h1>Code <br> Converter</h1>
+                <hr>
+                <p>Free html, css and js converter. Convert your design and animations into clean html, css and
+                    JavaScript
+                    Code.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-container">
+                <h1>Copyright © 2020 Virtual Theory.</h1>
+                <p>All rights reserved / Richtlinien für den Datenschutz / Nutzungsbedingungen / Cookies / Daten zu
+                    meiner
+                    Person nicht verkaufen / Impressum</p>
+            </div>
+        </footer>
+    </section>
+
+    <script>
+
+
+        // parallax
+        function parallaxY(element, distance, speed) {
+            const item = document.querySelector(element);
+            item.style.transform = `translateY(${distance * speed}px)`;
+        }
+        function parallaxX(element, distance, speed) {
+            const item = document.querySelector(element);
+            item.style.transform = `translateX(${distance * speed}px)`;
+        }
+
+        window.addEventListener('scroll', function() {
+            parallaxY(".bg", window.scrollY, -0.12);
+            parallaxX(".parallax", window.scrollY, 0.5);
+        });
+
+
+        // cursor
+
+        const ball = document.querySelector('.cursor')
+
+        let mouseX = 0
+        let mouseY = 0
+
+        let ballX = 0
+        let ballY = 0
+
+        let speed = 0.11
+
+
+        function animate() {
+            let distX = mouseX - ballX
+            let distY = mouseY - ballY
+
+            ballX = ballX + (distX * speed)
+            ballY = ballY + (distY * speed)
+
+            ball.style.left = ballX + 'px'
+            ball.style.top = ballY + 'px'
+
+            requestAnimationFrame(animate)
+        }
+
+        animate()
+
+        document.addEventListener('mousemove', function(event) {
+            mouseX = event.pageX
+            mouseY = event.pageY
+            
+        })
+
+        function clickme() {
+            window.scrollTo({
+                top: 1000,
+                left: 0,
+                behavior: "smooth"
+            });
+        }
+
+    </script>
+</body>
+
+</html>
